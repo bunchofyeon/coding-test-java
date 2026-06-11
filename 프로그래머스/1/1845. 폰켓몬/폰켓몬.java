@@ -2,17 +2,33 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] nums) {
-        int answer = 0;
-        int n = (nums.length)/2;
+
         Set<Integer> set = new HashSet<>();
-        for (int s : nums) {
-            set.add(s);
+
+        for(int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
         }
-        if(n>=set.size()) {
-            answer = set.size();
-        } else {
-            answer = n;
+
+        if(nums.length / 2 >= set.size()) {
+            return set.size();
         }
-        return answer;
+
+        return nums.length / 2;
     }
 }
+
+/*
+import java.util.*;
+
+class Solution {
+    public int solution(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+
+        for(int num : nums) {
+            set.add(num);
+        }
+
+        return Math.min(set.size(), nums.length / 2);
+    }
+}
+*/
